@@ -1,0 +1,25 @@
+# !-----------------------------------------------------------------------------------------------!
+#
+#   The localization/ folder stores various localization files. Use the
+#   suggested naming convention message_LANGUAGE.yml and then set the Locale
+#   in the settings.yml to Locale: "LANGUAGE".
+#
+#   1) COLOR CODES are supported with the '&' character.
+#      - For usage, see http://minecraftwiki.net/wiki/Formatting_codes
+#      - When you use them, place quotes around the message like this: "Hello &cworld."
+#       - To use HEX colors, use #123456 syntax: "Hello #123456world."
+#
+#   2) TO HIDE any message, set it to 'none'.
+#
+#   3) For UNICODE CHARACTERS (smileys, symbols, ..), save the file in UTF-8 encoding.
+#
+# !-----------------------------------------------------------------------------------------------!
+
+Prefixes:
+  Success: "&a|| &2&lEpicModeration &8// &7"
+  Error: "&c|| &2&lEpicModeration &8// &7"
+
+# -------------------------------------------------------------------------------------------------
+# DO NOT EDIT. Otherwise it will corrupt your plugin installation!
+# -------------------------------------------------------------------------------------------------
+Version: 1
