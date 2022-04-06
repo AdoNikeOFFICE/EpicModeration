@@ -18,6 +18,8 @@ public class ModerationListener implements Listener {
 
 		if (data == null && !PlayerData.isLoaded(player))
 			PlayerData.createPlayer(player);
+		else if (PlayerData.isLoaded(player) && data != null)
+			data.setOnline(true);
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
@@ -25,8 +27,10 @@ public class ModerationListener implements Listener {
 		final Player player = event.getPlayer();
 		final PlayerData data = PlayerData.findPlayer(player);
 
-		if (data != null && PlayerData.isLoaded(player))
+		if (data != null && PlayerData.isLoaded(player)) {
 			data.setLastJoin(TimeUtil.getFormattedDate());
+			data.setOnline(false);
+		}
 	}
 
 }
