@@ -64,7 +64,7 @@ public class OnlineMenu extends MenuPagged<PlayerData> {
 
 	@Override
 	protected void onPageClick(final Player player, final PlayerData item, final ClickType click) {
-
+		new OptionsMenu(this, player).displayTo(player);
 	}
 
 	@Override
