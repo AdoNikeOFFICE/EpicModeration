@@ -1,5 +1,11 @@
 # EpicModeration
-The best moderation solution in a plugin. Moderate the server with ease and also in the modern way.
+> The best moderation solution in a plugin. Moderate the server with ease and also in the modern way.
+
+--- Badges ---
+
+EpicModeration focuses on helping people manage the server. It prides itself on simplicity and functionality. It is actively developed, so there is no need to be afraid of any mistakes. We fix mistakes quickly, so you always get a fully functional plugin. If you found a mistake, let us know. In terms of ideas, every idea is welcome. What are you still waiting for? This plugin is a clear choice if you don't know what to use for management.
+
+--- Image ---
 
 ## License
 ```
