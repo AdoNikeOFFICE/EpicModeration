@@ -1,4 +1,4 @@
-# EpicModeration
+# 🛡️ EpicModeration
 > The best moderation solution in a plugin. Moderate the server with ease and also in the modern way.
 
 --- Badges ---
