@@ -13,10 +13,7 @@ import org.mineacademy.fo.RandomUtil;
 import org.mineacademy.fo.menu.Menu;
 import org.mineacademy.fo.menu.button.Button;
 import org.mineacademy.fo.menu.model.ItemCreator;
-import org.mineacademy.fo.remain.CompColor;
-import org.mineacademy.fo.remain.CompMaterial;
-import org.mineacademy.fo.remain.CompParticle;
-import org.mineacademy.fo.remain.CompSound;
+import org.mineacademy.fo.remain.*;
 import sk.adonikeoffice.epicmoderation.data.PlayerData;
 
 public class OptionsMenu extends Menu {
@@ -80,6 +77,12 @@ public class OptionsMenu extends Menu {
 			data.setFreezedLocation(pickedPlayer.getLocation());
 
 			restartMenu(has ? "&cDisabled" : "&aEnabled");
+
+			{
+				Remain.sendTitle(pickedPlayer, "&c&lFREEZED", "&7You have been freezed.");
+				Remain.sendActionBar(pickedPlayer, "Freeze enabled.");
+				Common.tell(pickedPlayer, "Staff team freezed you.");
+			}
 		});
 
 		// DOWN

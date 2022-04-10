@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.mineacademy.fo.TimeUtil;
@@ -31,6 +32,15 @@ public class ModerationListener implements Listener {
 			data.setLastJoin(TimeUtil.getFormattedDate());
 			data.setOnline(false);
 		}
+	}
+
+	@EventHandler
+	public void onBlockBreak(final BlockBreakEvent event) {
+		final Player player = event.getPlayer();
+		final PlayerData data = PlayerData.findPlayer(player);
+
+		if (data.isFreezed())
+			event.setCancelled(true);
 	}
 
 }

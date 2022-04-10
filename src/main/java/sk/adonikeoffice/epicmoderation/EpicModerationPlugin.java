@@ -46,7 +46,7 @@ public final class EpicModerationPlugin extends SimplePlugin {
 		PlayerData.loadPlayers();
 
 		{
-			PlayerData.setOfflineToAllPlayers();
+			PlayerData.disableImportantThings();
 
 			for (final Player player : Remain.getOnlinePlayers())
 				PlayerUtil.kick(player, "EpicModeration: Safe");
@@ -56,7 +56,7 @@ public final class EpicModerationPlugin extends SimplePlugin {
 	/**
 	 * Registering Settings and Localization files
 	 *
-	 * @return Settings and Localization
+	 * @return Settings and Localization file
 	 */
 	@Override
 	public List<Class<? extends YamlStaticConfig>> getSettings() {
@@ -69,7 +69,6 @@ public final class EpicModerationPlugin extends SimplePlugin {
 	 *
 	 * @return Metrics ID of the plugin
 	 */
-
 	@Override
 	public int getMetricsPluginId() {
 		return 14867;

@@ -121,9 +121,11 @@ public class PlayerData extends YamlConfig {
 		save();
 	}
 
-	public static void setOfflineToAllPlayers() {
-		for (final PlayerData player : getPlayers())
+	public static void disableImportantThings() {
+		for (final PlayerData player : getPlayers()) {
 			player.setOnline(false);
+			player.setFreezed(false);
+		}
 	}
 
 	public static void removePlayer(final PlayerData player) {
