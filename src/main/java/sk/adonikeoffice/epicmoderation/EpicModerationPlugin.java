@@ -20,6 +20,9 @@ import java.util.List;
 
 public final class EpicModerationPlugin extends SimplePlugin {
 
+	/**
+	 * What happens on plugin start?
+	 */
 	@Override
 	protected void onPluginStart() {
 		Common.ADD_TELL_PREFIX = false;
@@ -30,6 +33,9 @@ public final class EpicModerationPlugin extends SimplePlugin {
 		Messenger.setErrorPrefix(Lang.of("Prefixes.Error"));
 	}
 
+	/**
+	 * What happens on server start, reload, etc.?
+	 */
 	@Override
 	protected void onReloadablesStart() {
 		registerCommand(new ModerationMenuCommand());
@@ -47,10 +53,22 @@ public final class EpicModerationPlugin extends SimplePlugin {
 		}
 	}
 
+	/**
+	 * Registering Settings and Localization files
+	 *
+	 * @return Settings and Localization
+	 */
 	@Override
 	public List<Class<? extends YamlStaticConfig>> getSettings() {
 		return Arrays.asList(Settings.class, Localization.class);
 	}
+
+	/**
+	 * https://bstats.org/plugin/bukkit/EpicModeration/14867
+	 * https://bstats.org/signatures/bukkit/EpicModeration.svg
+	 *
+	 * @return Metrics ID of the plugin
+	 */
 
 	@Override
 	public int getMetricsPluginId() {

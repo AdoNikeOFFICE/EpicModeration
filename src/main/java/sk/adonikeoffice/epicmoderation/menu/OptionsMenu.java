@@ -48,7 +48,6 @@ public class OptionsMenu extends Menu {
 
 		setTitle("Profile of " + pickedPlayer.getName());
 		setSize(9 * 6);
-		setSlotNumbersVisible();
 
 		// UP
 		teleport = Button.makeSimple(makeWool("Teleport to the player"), (player) -> {
@@ -92,7 +91,7 @@ public class OptionsMenu extends Menu {
 			if (helmetItem != null) {
 				inventory.setHelmet(new ItemStack(Material.AIR));
 
-				newInstance().displayTo(getViewer());
+				reopenMenu();
 			}
 		});
 
@@ -102,7 +101,7 @@ public class OptionsMenu extends Menu {
 			if (chestplateItem != null) {
 				inventory.setChestplate(new ItemStack(Material.AIR));
 
-				newInstance().displayTo(getViewer());
+				reopenMenu();
 			}
 		});
 
@@ -112,7 +111,7 @@ public class OptionsMenu extends Menu {
 			if (leggingsItem != null) {
 				inventory.setLeggings(new ItemStack(Material.AIR));
 
-				newInstance().displayTo(getViewer());
+				reopenMenu();
 			}
 		});
 
@@ -122,7 +121,7 @@ public class OptionsMenu extends Menu {
 			if (bootsItem != null) {
 				inventory.setBoots(new ItemStack(Material.AIR));
 
-				newInstance().displayTo(getViewer());
+				reopenMenu();
 			}
 		});
 
@@ -131,7 +130,7 @@ public class OptionsMenu extends Menu {
 		mainHand = Button.makeSimple(isAir(mainHandItem, "&fMain Hand &8-"), (player) -> {
 			inventory.setItemInMainHand(new ItemStack(Material.AIR));
 
-			newInstance().displayTo(getViewer());
+			reopenMenu();
 		});
 
 		final ItemStack offHandItem = inventory.getItemInOffHand();
@@ -139,8 +138,12 @@ public class OptionsMenu extends Menu {
 		offHand = Button.makeSimple(isAir(offHandItem, "&fOff Hand &8-"), (player) -> {
 			inventory.setItemInOffHand(new ItemStack(Material.AIR));
 
-			newInstance().displayTo(getViewer());
+			reopenMenu();
 		});
+	}
+
+	private void reopenMenu() {
+		newInstance().displayTo(getViewer());
 	}
 
 	private static ItemCreator makeWool(final String text) {

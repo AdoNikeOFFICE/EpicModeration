@@ -7,12 +7,16 @@ import sk.adonikeoffice.epicmoderation.data.PlayerData;
 
 public class MovementTask extends BukkitRunnable {
 
+	/**
+	 * What happens in this runnable,
+	 * that is called every 0.05 milliseconds
+	 */
 	@Override
 	public void run() {
 		for (final Player player : Remain.getOnlinePlayers()) {
 			if (!player.isOnline())
 				return;
-			
+
 			final PlayerData data = PlayerData.findPlayer(player);
 
 			if (PlayerData.isLoaded(player) && data.isFreezed())
