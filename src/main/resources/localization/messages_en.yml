@@ -17,6 +17,7 @@
 
 Prefixes:
   Success: "&a|| &2&lEpicModeration &8// &7"
+  Question: "&b|| &2&lEpicModeration &8// &7"
   Error: "&c|| &2&lEpicModeration &8// &7"
 
 # -------------------------------------------------------------------------------------------------

@@ -9,23 +9,23 @@ import org.mineacademy.fo.remain.CompMaterial;
 public class MainMenu extends Menu {
 
 	private final Button onlinePlayers;
-	private final Button allPlayers;
+	//private final Button offlinePlayers;
 
 	public MainMenu() {
 		setTitle("EpicModeration™");
 		setSize(9 * 3);
 
 		onlinePlayers = new ButtonMenu(new OnlineMenu(this), CompMaterial.PAPER, "&aShow Online Players");
-		allPlayers = new ButtonMenu(new OfflineMenu(this), CompMaterial.PAPER, "&aShow Offline Players");
+		//	offlinePlayers = new ButtonMenu(new OfflineMenu(this), CompMaterial.PAPER, "&aShow Offline Players");
 	}
 
 	@Override
 	public ItemStack getItemAt(final int slot) {
-		if (slot == 21)
+		if (slot == 22)
 			return onlinePlayers.getItem();
 
-		if (slot == 23)
-			return allPlayers.getItem();
+		//if (slot == 23)
+		//	return offlinePlayers.getItem();
 
 		return null;
 	}

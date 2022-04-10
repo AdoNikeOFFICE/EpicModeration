@@ -1,6 +1,7 @@
 package sk.adonikeoffice.epicmoderation.data;
 
 import lombok.Getter;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.mineacademy.fo.Common;
 import org.mineacademy.fo.TimeUtil;
@@ -23,7 +24,11 @@ public class PlayerData extends YamlConfig {
 	private String ip;
 	private String firstJoin;
 	private String lastJoin;
+
 	private boolean online;
+	private boolean freezed;
+
+	private Location freezedLocation;
 
 	private PlayerData(final String name) {
 		this.name = name;
@@ -38,6 +43,8 @@ public class PlayerData extends YamlConfig {
 		firstJoin = getString("FIRST_JOIN");
 		lastJoin = getString("LAST_JOIN", "Not yet.");
 		online = getBoolean("ONLINE", false);
+		freezed = getBoolean("FREEZED", false);
+		freezedLocation = getLocation("FREEZED_LOCATION");
 	}
 
 	@Override
@@ -48,7 +55,9 @@ public class PlayerData extends YamlConfig {
 				"IP", this.ip,
 				"FIRST_JOIN", this.firstJoin,
 				"LAST_JOIN", this.lastJoin,
-				"ONLINE", this.online
+				"ONLINE", this.online,
+				"FREEZED", this.freezed,
+				"FREEZED_LOCATION", this.freezedLocation
 		);
 	}
 
@@ -65,6 +74,7 @@ public class PlayerData extends YamlConfig {
 		playerData.setIp(Objects.requireNonNull(player.getAddress()).toString());
 		playerData.setFirstJoin(TimeUtil.getFormattedDate());
 		playerData.setOnline(true);
+		playerData.setFreezed(false);
 
 		Common.runLater(playerData::save);
 	}
@@ -72,31 +82,48 @@ public class PlayerData extends YamlConfig {
 	public void setUuid(final String uuid) {
 		this.uuid = uuid;
 
-		save("UUID", uuid);
+		save();
 	}
 
 	public void setIp(final String ip) {
 		this.ip = ip;
 
-		save("IP", ip);
+		save();
 	}
 
 	public void setFirstJoin(final String firstJoin) {
 		this.firstJoin = firstJoin;
 
-		save("FIRST_JOIN", firstJoin);
+		save();
 	}
 
 	public void setLastJoin(final String lastJoin) {
 		this.lastJoin = lastJoin;
 
-		save("LAST_JOIN", lastJoin);
+		save();
 	}
 
 	public void setOnline(final boolean online) {
 		this.online = online;
 
-		save("ONLINE", online);
+		save();
+	}
+
+	public void setFreezed(final boolean freezed) {
+		this.freezed = freezed;
+
+		save();
+	}
+
+	public void setFreezedLocation(final Location freezedLocation) {
+		this.freezedLocation = freezedLocation;
+
+		save();
+	}
+
+	public static void setOfflineToAllPlayers() {
+		for (final PlayerData player : getPlayers())
+			player.setOnline(false);
 	}
 
 	public static void removePlayer(final PlayerData player) {

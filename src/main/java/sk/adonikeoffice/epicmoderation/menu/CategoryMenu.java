@@ -1,6 +1,5 @@
-package sk.adonikeoffice.epicmoderation.menu;
+/*package sk.adonikeoffice.epicmoderation.menu;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
@@ -14,16 +13,15 @@ import sk.adonikeoffice.epicmoderation.data.PlayerData;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class OnlineMenu extends MenuPagged<PlayerData> {
+public class CategoryMenu extends MenuPagged<PlayerData> {
 
-	public OnlineMenu(final Menu parent) {
-		super(9 * 2, parent, PlayerData.getPlayers().stream().filter(PlayerData::isOnline).collect(Collectors.toList()));
+	public CategoryMenu(final Menu parent, final boolean online) {
+		super(9 * 2, parent, PlayerData.getPlayers().stream().filter(data -> online == data.isOnline()).collect(Collectors.toList()));
 
-		setTitle("EpicModeration || Online " + Remain.getOnlinePlayers().size());
+		setTitle("EpicModeration || " + (online ? "Online " + Remain.getOnlinePlayers().size() : "Offline " + PlayerData.getPlayers().stream().filter(data -> !data.isOnline()).count()));
 	}
 
 	@Override
@@ -59,7 +57,7 @@ public class OnlineMenu extends MenuPagged<PlayerData> {
 		if (item.getName().equals(player.getName()))
 			return;
 
-		new OptionsMenu(this, Objects.requireNonNull(Bukkit.getPlayer(item.getName()))).displayTo(player);
+		new OptionsMenu(this, player).displayTo(player);
 	}
 
 	@Override
@@ -72,4 +70,4 @@ public class OnlineMenu extends MenuPagged<PlayerData> {
 		return this;
 	}
 
-}
+}*/
